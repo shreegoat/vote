@@ -5,8 +5,14 @@ const relatives = [
   { name: "Santosh Mama/Bade papa/Papa", img: "Santosh.jpg", votes: 0 },
   { name: "Mummy/Buwa", img: "Chanda.jpg", votes: 0 },
   { name: "Baba/Fupaji", img: "Bigyan .jpg", votes: 0 },
-{name: "Nanaji/Dadaji", img: "Nana.jpg", votes: 0 },
-{name: "Nani/Dadi", img: "Nani.jpg", votes: 0 }
+  {name: "Nanaji/Dadaji", img: "Nana.jpg", votes: 0 },
+  {name: "Nani/Dadi", img: "Nani.jpg", votes: 0 },
+  {name: "Yash", img: "Yash.jpg", votes: 0 },
+  {name: "Priyanshi", img: "Priy.jpg", votes: 0 },
+  {name: "Shital", img: "Shital.jpg", votes: 0 },
+  {name: "Aaditya", img: "Aadi.jpg", votes: 0 },
+  {name: "Trisha", img: "Tri.jpg", votes: 0 },
+  {name: "Shreejal", img: "Shree.jpg", votes: 0 }
 ];
 
 const arena = document.getElementById('arena');
@@ -73,12 +79,22 @@ function getSortedVoteList() {
 }
 
 function updateWinner() {
+  const totalVotes = relatives.reduce((sum, r) => sum + r.votes, 0);
+
+  if (totalVotes === 0) {
+    winnerDisplay.innerHTML = `🏆 No votes yet! Be the first to crown a champ.`;
+    voteDisplay.innerHTML = ""; // Hide the leaderboard as well
+    return;
+  }
+
   const champ = relatives.reduce((max, r) => r.votes > max.votes ? r : max, relatives[0]);
+
   winnerDisplay.innerHTML = `
     👑 Current Champ:<br>
     <img src="${champ.img}" alt="${champ.name}">
     <div style="margin-top: 5px;">${champ.name} — ${champ.votes} votes</div>
   `;
+
   voteDisplay.innerHTML = getSortedVoteList();
 }
 
@@ -86,6 +102,14 @@ function saveVotes() {
   const voteData = {};
   relatives.forEach(r => voteData[r.name] = r.votes);
   localStorage.setItem("votes", JSON.stringify(voteData));
+}
+
+function resetVotes() {
+  localStorage.removeItem("votes");
+  localStorage.removeItem("lastReset");
+  relatives.forEach(r => r.votes = 0);
+  updateWinner();
+  updateArena();
 }
 
 updateWinner();
