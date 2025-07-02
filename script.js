@@ -1,15 +1,14 @@
 const relatives = [
-  { name: "Uncle Raj", img: "raj.jpg", votes: 0 },
-  { name: "Auntie Sita", img: "sita.jpg", votes: 0 },
-  { name: "Cousin Lila", img: "lila.jpg", votes: 0 },
-  { name: "Dai Babu", img: "dai.jpg", votes: 0 },
-  { name: "Maiju", img: "maiju.jpg", votes: 0 }
+  { name: "Sano Mama/Uncle/Papa", img: "Sanjay.jpg", votes: 0 },
+  { name: "Sano maiju/Aunt/Mummy", img: "Seema.jpg", votes: 0 },
+  { name: "Maiju/Badi mummy/Mummy", img: "Archana.jpg", votes: 0 },
+  { name: "Santosh Mama/Bade papa/Papa", img: "Santosh.jpg", votes: 0 },
+  { name: "Mummy/Buwa", img: "Chanda.jpg", votes: 0 },
+  { name: "Baba/Fupaji", img: "Bigyan.jpg", votes: 0 }
 ];
 
 const arena = document.getElementById("arena");
 const winnerDisplay = document.getElementById("winnerDisplay");
-
-let currentPair = [];
 
 const savedVotes = JSON.parse(localStorage.getItem("votes")) || {};
 const lastReset = localStorage.getItem("lastReset") || Date.now();
@@ -47,6 +46,7 @@ function renderPair(p1, p2) {
       } else {
         p1 = getRandomExcluding(p2.name);
       }
+
       renderPair(p1, p2);
     };
     arena.appendChild(div);
@@ -55,7 +55,11 @@ function renderPair(p1, p2) {
 
 function updateWinner() {
   const champ = relatives.reduce((max, r) => r.votes > max.votes ? r : max, relatives[0]);
-  winnerDisplay.textContent = `👑 Winner of the day: ${champ.name}`;
+  winnerDisplay.innerHTML = `
+    👑 Winner of the day:<br>
+    <img src="${champ.img}">
+    <div style="margin-top: 5px;">${champ.votes} votes</div>
+  `;
 }
 
 function saveVotes() {
