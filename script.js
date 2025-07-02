@@ -4,7 +4,7 @@ const relatives = [
   { name: "Maiju/Badi mummy/Mummy", img: "Archana.jpg", votes: 0 },
   { name: "Santosh Mama/Bade papa/Papa", img: "Santosh.jpg", votes: 0 },
   { name: "Mummy/Buwa", img: "Chanda.jpg", votes: 0 },
-  { name: "Baba/Fupaji", img: "Bigyan.jpg", votes: 0 }
+  { name: "Baba/Fupaji", img: "Bigyan .jpg", votes: 0 }
 ];
 
 const arena = document.getElementById("arena");
