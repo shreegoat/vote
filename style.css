@@ -44,3 +44,35 @@ h1 {
   border: 3px solid gold;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
+
+#voteDisplay {
+  margin-top: 20px;
+}
+
+#voteDisplay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+#voteDisplay li {
+  font-size: 0.95em;
+  margin: 4px 0;
+}
+
+#voteDisplay li.rank-1 {
+  font-weight: bold;
+  color: #d4af37;
+}
+
+#voteDisplay li.rank-2 {
+  font-weight: bold;
+  color: #808080;
+}
+
+#voteDisplay li.rank-3 {
+  font-weight: bold;
+  color: #cd7f32;
+}
