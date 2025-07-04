@@ -6,13 +6,8 @@ const relatives = [
   { name: "Mummy/Buwa", img: "Chanda.jpg", votes: 0 },
   { name: "Baba/Fupaji", img: "Bigyan .jpg", votes: 0 },
   {name: "Nanaji/Dadaji", img: "Nana.jpg", votes: 0 },
-  {name: "Nani/Dadi", img: "Nani.jpg", votes: 0 },
-  {name: "Yash", img: "Yash.jpg", votes: 0 },
-  {name: "Priyanshi", img: "Priy.jpg", votes: 0 },
-  {name: "Shital", img: "Shital.jpg", votes: 0 },
-  {name: "Aaditya", img: "Aadi.jpg", votes: 0 },
-  {name: "Trisha", img: "Tri.jpg", votes: 0 },
-  {name: "Shreejal", img: "Shree.jpg", votes: 0 }
+  {name: "Nani/Dadi", img: "Nani.jpg", votes: 0 }
+  
 ];
 
 const arena = document.getElementById('arena');
